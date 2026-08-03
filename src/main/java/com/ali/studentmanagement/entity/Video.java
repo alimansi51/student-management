@@ -6,7 +6,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="videos")
+@Table(name = "videos")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -29,8 +29,7 @@ public class Video {
     @Column(name = "uploaded_at", nullable = false)
     private LocalDateTime uploadedAt;
 
-    @ManyToOne
-    @JoinColumn(name="course_id",nullable = false )
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "course_id", nullable = false)
     private Course course;
-
 }
